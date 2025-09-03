@@ -25,12 +25,12 @@ class Users(Base):
     __tablename__ = 'users' #lowercase plural form of resource
 
     id: Mapped[int] = mapped_column(primary_key=True)
-    username: Mapped[str] = mapped_column(String(120), unique=True, nullable=False)
-    email: Mapped[str] = mapped_column(String(360), unique=True, nullable=False)
+    username: Mapped[str] = mapped_column(String(255), unique=True, nullable=False)
+    email: Mapped[str] = mapped_column(String(255), unique=True, nullable=False)
     password: Mapped[str] = mapped_column(String(500), nullable=False)
     DOB: Mapped[date] = mapped_column(Date, nullable=True)
-    address: Mapped[str] = mapped_column(String(500), nullable=True)
-    role: Mapped[str] = mapped_column(String(30), nullable=False)
+    address: Mapped[str] = mapped_column(String(255), nullable=True)
+    role: Mapped[str] = mapped_column(String(255), nullable=False)
 
     #One to Many relationship from User to Books
     loans: Mapped[list['Loans']] = relationship('Loans', back_populates='user')
@@ -55,11 +55,11 @@ class Books(Base):
     __tablename__ = 'books'
 
     id: Mapped[int] = mapped_column(primary_key=True)
-    title: Mapped[str] = mapped_column(String(120), unique=True, nullable=False)
-    genre: Mapped[str] = mapped_column(String(360), nullable=False)
-    age_category: Mapped[str] = mapped_column(String(120), nullable=False)
+    title: Mapped[str] = mapped_column(String(255), unique=True, nullable=False)
+    genre: Mapped[str] = mapped_column(String(255), nullable=False)
+    age_category: Mapped[str] = mapped_column(String(255), nullable=False)
     publish_date: Mapped[date] = mapped_column(Date, nullable=False)
-    author: Mapped[str] = mapped_column(String(500), nullable=False)
+    author: Mapped[str] = mapped_column(String(255), nullable=False)
 
     #Relationship
     loans: Mapped[list['Loans']] = relationship('Loans', secondary=loan_books, back_populates='books')
