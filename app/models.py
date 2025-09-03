@@ -55,11 +55,11 @@ class Books(Base):
     __tablename__ = 'books'
 
     id: Mapped[int] = mapped_column(primary_key=True)
-    title: Mapped[str] = mapped_column(String(255), unique=True, nullable=False)
-    genre: Mapped[str] = mapped_column(String(255), nullable=False)
-    age_category: Mapped[str] = mapped_column(String(255), nullable=False)
+    title: Mapped[str] = mapped_column(String(120), unique=True, nullable=False)
+    genre: Mapped[str] = mapped_column(String(360), nullable=False)
+    age_category: Mapped[str] = mapped_column(String(120), nullable=False)
     publish_date: Mapped[date] = mapped_column(Date, nullable=False)
-    author: Mapped[str] = mapped_column(String(255), nullable=False)
+    author: Mapped[str] = mapped_column(String(500), nullable=False)
 
     #Relationship
     loans: Mapped[list['Loans']] = relationship('Loans', secondary=loan_books, back_populates='books')
