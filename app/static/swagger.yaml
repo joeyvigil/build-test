@@ -5,7 +5,7 @@ info:
   description: "Used to manage the everyday functionalities of a library"
   version: "0.0.1"
 
-host: "my-super-cool-library.onrender.com" #During development my API is served on my local host (will change when we go to prod)
+host: "build-test-gfcy.onrender.com" #During development my API is served on my local host (will change when we go to prod)
 schemes:
   - "https"
 consumes:
